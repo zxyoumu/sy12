@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+		body,li,ul,p{margin: 0;padding: 0;}
+		body{background-color: #EEE;}
+		li{list-style: none;}
+		a{text-decoration: none;}
+		#wrap{
+			width: 462px;
+			height: 160px;
+			margin: 50px auto;
+		}
+		#wrap .header{
+			font-size: 0;
+		}
+		.header span{
+			display: inline-block;
+			background-color: #000;
+			padding: 5px 49px;
+			font-size: 14px;
+			color: #FFF;
+			cursor: pointer;
+		}
+		.header span.on{
+			background-color: #AAA;
+			color: #FFF;
+		}
+		#wrap .content{
+			position: relative;
+		}
+		.content ul{
+			position: absolute;
+			display: none;
+			width: 100%;
+			top: 0;
+			left: 0;
+		}
+		.content ul.onmove{
+			display: block;
+		}
+		.content ul li{
+			background-color: white;
+			padding: 8px 0 8px 5px;
+			border-bottom: 1px dashed #AAA;
+			text-indent: 12px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<div class="header">
+			<span class="on">热门排行</span>
+			<span>美图速递</span>
+			<span>前沿科技</span>
+		</div>
+		<div class="content">
+			<ul class="onmove">
+				<li>习近平出席推进“一带一路”建设工作5周年座谈会</li>
+				<li>中共时隔近三年再修党纪条例 这些高压线不能碰</li>
+				<li>全国高中2019年秋季起分步实施新课程使用新教材</li>
+				<li>个税法修正案草案将二审 起征点会否超5000元？</li>
+			</ul>
+			<ul>
+				<li>鹅教官、羊陪练……这所中学养的动物成了“网红”</li>
+				<li>最伤身体的10个生活习惯，一定要避开</li>
+				<li>12岁孩子带着父亲去西藏 吃住行自己拿主意</li>
+				<li>16岁男孩暑假干了俩月工地，练出满身肌肉，只为赚学费</li>
+			</ul>
+			<ul>
+				<li>谷歌 Waymo黑科技：在VR中训练自动驾驶AI</li>
+				<li>绿地 VR看房产品一周体验人次超3千 房产+VR是噱头还是刚需</li>
+				<li>沃尔玛申请虚拟商店专利 让用户通过VR购物</li>
+				<li>各种语音识别大测评，让你见识科技力量</li>
+			</ul>
+		</div>
+	</div>
+	<script>
+		let aSpan = document.getElementsByTagName("span"),
+			aUl = document.getElementsByTagName("ul"),
+			index = 0;
+		for(let i=0;i<aSpan.length;i++){
+		  aSpan[i].onmouseenter = function(){
+				aSpan[index].className = "";
+				aUl[index].className = "";
+				index = i;
+				aSpan[index].className = "on";
+				aUl[index].className = "onmove";
+		  }
+		}
+	</script>
+</body>
+</html>
+

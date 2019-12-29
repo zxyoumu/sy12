@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>星级评分</title>
+<style>
+		*{margin: 0;padding: 0;}
+		#wrap{
+			width: 200px;
+			margin: 50px auto;
+		}
+		.title{
+			width: 75px;
+			font-weight: normal;
+		}
+		ul{
+			display: inline-block;
+			vertical-align: middle;
+		}
+		li{
+			list-style-type: none;
+			float: left;
+			margin-right: 2px;
+		}
+		.star{
+			display: block;
+			width: 20px;
+			height: 19px;
+			background: url("images/star.png") no-repeat;
+			cursor: pointer;
+		}
+		li .on{
+			background-position: 0 -28px;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="wrap">
+		<b class="title">星级评分：</b>
+		<ul>
+			<li>
+				<span class="star"></span>
+			</li>
+			<li>
+				<span class="star"></span>
+			</li>
+			<li>
+				<span class="star"></span>
+			</li>
+			<li>
+				<span class="star"></span>
+			</li>
+			<li>
+				<span class="star"></span>
+			</li>
+		</ul>
+	</div>
+	<script>
+		let aStar = document.getElementsByClassName("star"),
+				oUl = document.getElementsByTagName("ul")[0],
+				length = aStar.length,
+				score= -1;
+		for(let i=0;i<length;i++){
+			aStar[i].onmouseenter=function(){
+				fun(i);
+			}
+			aStar[i].onclic=function(){
+				score=i;
+			}
+			oUl.onmouseleave=function(){
+				fun(score);
+			}
+		}
+		function fun(x){
+			for(let j=0;j<length;j++){
+				aStar[j].className = j<=x? "star on":"star";
+			}
+		}
+	</script>
+</body>
+</html>
+
